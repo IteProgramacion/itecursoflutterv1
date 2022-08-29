@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-
-import '../clases/productos.dart';
+import 'package:itecursoflutter/datos/datos.dart';
+import 'package:itecursoflutter/vistas/detalle_producto.dart';
+import 'package:itecursoflutter/vistas/nuevo_producto.dart';
 
 class Home extends StatefulWidget {
+  final String routeName = 'Home';
+
   const Home({Key? key}) : super(key: key);
 
   @override
@@ -10,7 +13,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<Productos> productos=[];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,22 +20,25 @@ class _HomeState extends State<Home> {
         title: const Text('Home'),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
-          showDialog(context: context, builder: (BuildContext context){
-            return Container(height: 110, width: 110, color: Colors.amber,);
-          });
+        onPressed: () async {
+          await Navigator.pushNamed(context, NuevoProducto().routeName);
+          setState(() {});
         },
         child: const Icon(Icons.add),
       ),
       body: ListView.separated(
-        separatorBuilder: (context, index)=>const Divider(),
-        itemCount: productos.length,
-        itemBuilder: (context, index){
+        separatorBuilder: (context, index) => const Divider(),
+        itemCount: listaProductos.length,
+        itemBuilder: (context, index) {
           return ListTile(
-            title: Text(productos[index].nombre),
+            title: Text(listaProductos[index].nombre),
+            trailing: IconButton(
+                onPressed: () => Navigator.pushNamed(
+                    context, const DetalleProducto().routeName,
+                    arguments: listaProductos[index]),
+                icon: const Icon(Icons.arrow_forward_rounded)),
           );
         },
-
       ),
     );
   }

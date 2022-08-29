@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:itecursoflutter/vistas/detalle_producto.dart';
 import 'package:itecursoflutter/vistas/home.dart';
 import 'package:itecursoflutter/vistas/nuevo_producto.dart';
 
@@ -15,21 +16,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      initialRoute: 'home',
+
+      initialRoute: const Home().routeName,
       routes: {
-        'home': (BuildContext context)=> Home(),
-        'nuevoProducto': (BuildContext context)=> NuevoProducto(),
+        const Home().routeName : (BuildContext context)=> const Home(),
+        NuevoProducto().routeName: (BuildContext context)=> NuevoProducto(),
+        const DetalleProducto().routeName: (context)=> const DetalleProducto(),
       },
 
     );
