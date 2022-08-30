@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         const Home().routeName : (BuildContext context)=> const Home(),
         NuevoProducto().routeName: (BuildContext context)=> NuevoProducto(),
-        const DetalleProducto().routeName: (context)=> const DetalleProducto(),
+        DetalleProducto().routeName: (context)=> DetalleProducto(),
       },
 
     );

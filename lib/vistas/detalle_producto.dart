@@ -2,10 +2,19 @@ import 'package:flutter/material.dart';
 
 import '../clases/productos.dart';
 
-class DetalleProducto extends StatelessWidget {
+class DetalleProducto extends StatefulWidget {
   final String routeName = 'DetalleProducto';
 
-  const DetalleProducto({Key? key}) : super(key: key);
+  DetalleProducto({Key? key}) : super(key: key);
+
+  @override
+  State<DetalleProducto> createState() => _DetalleProductoState();
+}
+
+class _DetalleProductoState extends State<DetalleProducto> {
+
+
+  TextEditingController cantidad = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +24,31 @@ class DetalleProducto extends StatelessWidget {
         title: Text(item.nombre),
 
       ),
-      body: Center(
-        child: Text('Existen un total de ${item.cantidad} en el almacen, a un precio de ${item.precio} Bs. por unidad'),
+      body: Column(
+        children: [
+          Center(
+            child: Text('Existen un total de ${item.cantidad} en el almacen, a un precio de ${item.precio} Bs. por unidad'),
+          ),
+          Container(
+            margin: const EdgeInsets.all(25),
+            child: TextField(
+              controller: cantidad,
+              decoration: const InputDecoration(
+                labelText: 'Cantidad',
+              ),
+            ),
+          ),
+
+          ElevatedButton(
+            onPressed: (){
+              item.cantidad=int.parse(cantidad.text);
+              setState(() {
+
+              });
+            },
+            child: const Text('actualize')
+          )
+        ],
       ),
     );
   }

@@ -30,12 +30,21 @@ class _HomeState extends State<Home> {
         separatorBuilder: (context, index) => const Divider(),
         itemCount: listaProductos.length,
         itemBuilder: (context, index) {
+
           return ListTile(
             title: Text(listaProductos[index].nombre),
+            subtitle: Text('Inventario: ${listaProductos[index].cantidad} ::: Precio Unitario \$Bs${listaProductos[index].precio}'),
             trailing: IconButton(
-                onPressed: () => Navigator.pushNamed(
-                    context, const DetalleProducto().routeName,
-                    arguments: listaProductos[index]),
+                onPressed: () async{
+                  await Navigator.pushNamed(
+                    context, DetalleProducto().routeName,
+                    arguments: listaProductos[index]
+                  );
+
+                  setState(() {
+
+                  });
+                },
                 icon: const Icon(Icons.arrow_forward_rounded)),
           );
         },

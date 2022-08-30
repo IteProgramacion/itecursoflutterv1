@@ -26,6 +26,9 @@ class NuevoProducto extends StatelessWidget {
                 margin:
                     const EdgeInsets.symmetric(horizontal: 50, vertical: 25),
                 child: TextField(
+                  decoration: const InputDecoration(
+                    labelText: 'Nombre'
+                  ),
                   controller: nombre,
                 ),
               ),
@@ -33,6 +36,9 @@ class NuevoProducto extends StatelessWidget {
                 margin:
                     const EdgeInsets.symmetric(horizontal: 50, vertical: 25),
                 child: TextField(
+                  decoration: const InputDecoration(
+                      labelText: 'Cantidad'
+                  ),
                   controller: cantidad,
                 ),
               ),
@@ -40,6 +46,9 @@ class NuevoProducto extends StatelessWidget {
                 margin:
                     const EdgeInsets.symmetric(horizontal: 50, vertical: 25),
                 child: TextField(
+                  decoration: const InputDecoration(
+                      labelText: 'Nombre'
+                  ),
                   controller: precio,
                 ),
               ),
