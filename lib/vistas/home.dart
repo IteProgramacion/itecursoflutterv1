@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:itecursoflutter/datos/datos.dart';
 import 'package:itecursoflutter/vistas/detalle_producto.dart';
 import 'package:itecursoflutter/vistas/nuevo_producto.dart';
+import 'package:itecursoflutter/vistas/widgets/menu_widget.dart';
 
 class Home extends StatefulWidget {
   final String routeName = 'Home';
@@ -19,6 +20,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: const Text('Home'),
       ),
+      drawer: const MenuWidget(),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           await Navigator.pushNamed(context, NuevoProducto().routeName);

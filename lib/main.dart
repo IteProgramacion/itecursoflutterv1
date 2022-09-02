@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:itecursoflutter/vistas/detalle_producto.dart';
+import 'package:itecursoflutter/vistas/gridviewbuilder_view.dart';
 import 'package:itecursoflutter/vistas/home.dart';
 import 'package:itecursoflutter/vistas/nuevo_producto.dart';
 
@@ -24,6 +25,8 @@ class MyApp extends StatelessWidget {
         const Home().routeName : (BuildContext context)=> const Home(),
         NuevoProducto().routeName: (BuildContext context)=> NuevoProducto(),
         DetalleProducto().routeName: (context)=> DetalleProducto(),
+        const GridViewBuilderView().routeName: (context) => const GridViewBuilderView()
+
       },
 
     );
