@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:itecursoflutter/datos/datos.dart';
 import 'package:itecursoflutter/vistas/widgets/menu_widget.dart';
 
 class GridViewBuilderView extends StatefulWidget {
@@ -15,18 +16,12 @@ class _GridViewBuilderViewState extends State<GridViewBuilderView> {
       List.generate(100, (index) => {'id': index, 'name': 'Producto $index'})
           .toList();
   int selectIndex = 0;
-  List<NavigationRailDestination> categoria = [
-    const NavigationRailDestination(
-        icon: Icon(Icons.print), label: Text('Prints')),
-    const NavigationRailDestination(
-        icon: Icon(Icons.fire_extinguisher), label: Text('Fire')),
-    const NavigationRailDestination(
-        icon: Icon(Icons.extension), label: Text('game')),
-  ];
+
   List<NavigationRailDestination> categorias = List.generate(
       10,
       (index) => NavigationRailDestination(
-          icon: const Icon(Icons.extension), label: Text('cat $index')));
+
+          icon: Icon(listCategoiaIcon[index]), label: Text('cat $index')));
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +40,9 @@ class _GridViewBuilderViewState extends State<GridViewBuilderView> {
                   constraints: BoxConstraints(minHeight: constraints.maxHeight,),
                   child: IntrinsicHeight(
                     child: NavigationRail(
-
                       destinations: categorias,
                       selectedIndex: selectIndex,
+                      labelType: NavigationRailLabelType.all,
                       onDestinationSelected: (int value) {
                         setState(() {
                           selectIndex = value;
