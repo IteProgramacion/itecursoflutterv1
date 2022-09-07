@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../clases/productos.dart';
+import '../modelos/productos.dart';
 
 List<Productos> listaProductos = [
   Productos(nombre: 'wdqw', cantidad: 12, precio: 12)

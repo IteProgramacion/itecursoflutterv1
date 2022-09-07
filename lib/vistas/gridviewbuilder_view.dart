@@ -68,7 +68,11 @@ class _GridViewBuilderViewState extends State<GridViewBuilderView> {
                 return Container(
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      color: Colors.amberAccent,
+                    image: const DecorationImage(fit: BoxFit.cover,
+                      image: NetworkImage('https://dubaitrippackages.files.wordpress.com/2017/11/2-imgdinosaurs_base.jpg'),
+                    ),
+                    border: Border.all(width: 2, color: Colors.black26),
+                      color: Colors.black12,
                       borderRadius: BorderRadius.circular(15)),
                   child: Text(products[index]['name']),
                 );

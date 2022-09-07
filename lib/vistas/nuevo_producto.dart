@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:itecursoflutter/clases/productos.dart';
+import 'package:itecursoflutter/modelos/productos.dart';
 import 'package:itecursoflutter/datos/datos.dart';
 
 class NuevoProducto extends StatelessWidget {
