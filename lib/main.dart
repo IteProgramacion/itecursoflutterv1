@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       routes: {
         const Home().routeName : (BuildContext context)=> const Home(),
         NuevoProducto().routeName: (BuildContext context)=> NuevoProducto(),
-        DetalleProducto().routeName: (context)=> DetalleProducto(),
+        const DetalleProducto().routeName: (_)=> const DetalleProducto(),
         const GridViewBuilderView().routeName: (context) => const GridViewBuilderView()
 
       },

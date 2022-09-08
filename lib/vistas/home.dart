@@ -39,7 +39,7 @@ class _HomeState extends State<Home> {
             trailing: IconButton(
                 onPressed: () async{
                   await Navigator.pushNamed(
-                    context, DetalleProducto().routeName,
+                    context, const DetalleProducto().routeName,
                     arguments: listaProductos[index]
                   );
 

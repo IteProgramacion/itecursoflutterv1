@@ -5,7 +5,7 @@ import '../modelos/productos.dart';
 class DetalleProducto extends StatefulWidget {
   final String routeName = 'DetalleProducto';
 
-  DetalleProducto({Key? key}) : super(key: key);
+  const DetalleProducto({Key? key}) : super(key: key);
 
   @override
   State<DetalleProducto> createState() => _DetalleProductoState();
@@ -19,6 +19,7 @@ class _DetalleProductoState extends State<DetalleProducto> {
   @override
   Widget build(BuildContext context) {
     final Productos item =  ModalRoute.of(context)!.settings.arguments as Productos;
+    print(item);
     return Scaffold(
       appBar: AppBar(
         title: Text(item.nombre),
