@@ -1,16 +1,32 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:itecursoflutter/modelos/productos.dart';
 import 'package:itecursoflutter/datos/datos.dart';
 
-class NuevoProducto extends StatelessWidget {
-
+class NuevoProducto extends StatefulWidget {
   final String routeName = 'NuevoProducto';
 
-  NuevoProducto({Key? key}) : super(key: key);
+  const NuevoProducto({Key? key}) : super(key: key);
+
+  @override
+  State<NuevoProducto> createState() => _NuevoProductoState();
+}
+
+class _NuevoProductoState extends State<NuevoProducto> {
+
 
   final TextEditingController nombre = TextEditingController();
+
   final TextEditingController cantidad = TextEditingController();
+
   final TextEditingController precio = TextEditingController();
+
+  final ImagePicker _picker = ImagePicker();
+
+  XFile? image;
+
   @override
   Widget build(BuildContext context) {
 
@@ -22,6 +38,26 @@ class NuevoProducto extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              Container(
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  border: Border.all(),
+                  image: image != null ? DecorationImage(image: FileImage(File(image!.path,)), fit: BoxFit.cover): null,
+
+                ),
+                margin: const EdgeInsets.all(10),
+                height: 200,
+
+              ),
+
+              ElevatedButton.icon(onPressed: () async {
+                image = await _picker.pickImage(source: ImageSource.gallery);
+
+                setState(() {
+
+                });
+              }, label: const Text('Foto'), icon: const Icon(Icons.add)),
+
               Container(
                 margin:
                     const EdgeInsets.symmetric(horizontal: 50, vertical: 25),

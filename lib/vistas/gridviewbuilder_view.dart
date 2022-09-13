@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:itecursoflutter/datos/datos.dart';
+import 'package:itecursoflutter/indexs.dart';
 import 'package:itecursoflutter/vistas/detalle_producto.dart';
 import 'package:itecursoflutter/vistas/widgets/menu_widget.dart';
+import 'package:provider/provider.dart';
 
 class GridViewBuilderView extends StatefulWidget {
   final String routeName = 'GridViewBuilderView';
@@ -13,7 +15,7 @@ class GridViewBuilderView extends StatefulWidget {
 }
 
 class _GridViewBuilderViewState extends State<GridViewBuilderView> {
-   int selectIndex = 0;
+
 
   List<NavigationRailDestination> categorias = List.generate(
       10,
@@ -23,7 +25,7 @@ class _GridViewBuilderViewState extends State<GridViewBuilderView> {
   @override
   Widget build(BuildContext context) {
     print('****************************: ${listaProductos.length}');
-
+    final selectIndex = Provider.of<Indexs>(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Matriz Builder'),
@@ -42,11 +44,11 @@ class _GridViewBuilderViewState extends State<GridViewBuilderView> {
                   child: IntrinsicHeight(
                     child: NavigationRail(
                       destinations: categorias,
-                      selectedIndex: selectIndex,
+                      selectedIndex: selectIndex.indexRailNavigation,
                       labelType: NavigationRailLabelType.all,
                       onDestinationSelected: (int value) {
                         setState(() {
-                          selectIndex = value;
+                          selectIndex.indexRailNavigation = value;
                         });
                       },
                     ),
